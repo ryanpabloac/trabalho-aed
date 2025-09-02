@@ -11,28 +11,38 @@ typedef struct noConsulta NoConsulta;
 typedef struct descritorMedicamento ListaMedicamento;
 typedef struct noMedicamento NoMedicamento;
 
-struct descritorMedicamento {
+// === DESCRITORES ===
+struct descritorMedicamento { //ListaMedicamento => descritor da lista de medicamentos
     NoMedicamento *cabeca;
     NoMedicamento *cauda;
     uint tamanho;
 };
-struct noMedicamento {
-    NoMedicamento *ant;
-    ListaMedicamento dados;
-    NoMedicamento *prox;
-};
-struct descritorConsulta {
+
+struct descritorConsulta { //ListaConsulta => descritor da lista de consultas
     NoConsulta *cabeca;
     NoConsulta *cauda;
     uint tamanho;
 };
-struct noConsulta {
+
+// === NOS DAS LISTAS ===
+struct noMedicamento { //noMedicamento 
+    NoMedicamento *ant;
+    char nome_medicamento[50]; //NOME DO MEDICAMENTO
+    uint quantidade_medicamento_receitado; //QUANTIDADE DE MEDICAMENTO ESPECIFICADO
+    NoMedicamento *prox;
+};
+
+struct noConsulta { //noConsulta
     NoConsulta *ant;
-    ListaMedicamento dados;
+    ListaMedicamento dados; //LISTA DE MEDICAMENTOS
+    char paciente_consultado[50]; //NOME DO PACIENTE
+    uint paciente_idade; //IDADE DO PACIENTE
     NoConsulta *prox;
 };
 
-void criarListaConsulta(ListaConsulta *);
-void criarListaMedicamento(ListaMedicamento *);
+void criarListaConsulta(ListaConsulta *lista_consulta);
+void criarListaMedicamento(ListaMedicamento *lista_medicamento);
+NoConsulta* criarCelulaConsulta(char* nome_paciente, uint idade_paciente);
+NoMedicamento* criarCelulaMedicamento(char* nome_medicamento, uint quantidade_medicamento_receitado);
 
 #endif
