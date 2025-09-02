@@ -42,7 +42,7 @@ struct noConsulta { //noConsulta
 
 void criarListaConsulta(ListaConsulta *lista_consulta);
 void criarListaMedicamento(ListaMedicamento *lista_medicamento);
-NoConsulta* criarCelulaConsulta(char* nome_paciente, uint idade_paciente);
-NoMedicamento* criarCelulaMedicamento(char* nome_medicamento, uint quantidade_medicamento_receitado);
+NoConsulta* criarCelulaConsulta(const char* nome_paciente, uint idade_paciente);
+NoMedicamento* criarCelulaMedicamento(const char* nome_medicamento, uint quantidade_medicamento_receitado);
 
 #endif
