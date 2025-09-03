@@ -36,3 +36,40 @@ void LiberarListaMedicamento(ListaMedicamento *lista_medicamento) {
     lista_medicamento->cauda = NULL;
     lista_medicamento->tamanho = 0;
 }
+
+void LiberarNoMedicamento(ListaMedicamento *lista_medicamento, char medicamento[50]) {
+    NoMedicamento *iterador = lista_medicamento->cabeca;
+    NoMedicamento *ant = NULL;
+    NoMedicamento *prox = NULL;
+
+    while(iterador != NULL) {
+        prox = iterador->prox;
+
+        if(strcmp(iterador->nome_medicamento, medicamento) == 0) {
+
+            if(ant == NULL) {
+                lista_medicamento->cabeca = prox;
+                if(prox != NULL) prox->ant = NULL;
+                else lista_medicamento->cauda = NULL;
+            }
+            else if (prox == NULL) {
+                ant->prox = NULL;
+                lista_medicamento->cauda = ant;
+            }
+            else {
+                ant->prox = prox;
+                prox->ant = ant;
+            }
+
+            free(iterador);
+            lista_medicamento->tamanho--;
+            return;
+        }
+        
+        ant = iterador;
+        iterador = prox;
+    }
+
+    printf("Medicamento %s não encontrado!", medicamento);
+    return;
+}
