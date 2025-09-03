@@ -22,4 +22,9 @@ struct noConsulta { //noConsulta
 
 void criarListaConsulta(ListaConsulta *lista_consulta);
 NoConsulta* criarCelulaConsulta(const char* nome_paciente, uint idade_paciente);
+void imprimirListaConsulta(ListaConsulta *lista_consulta);
+void insereCelulaConsulta(ListaConsulta *lista_consulta, NoConsulta* dados);
+void buscarPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_paciente);
+void removerPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_paciente);
+
 #endif
