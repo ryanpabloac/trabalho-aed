@@ -3,7 +3,7 @@
 <aside>
 ALUNOS: <br>
 - Ryan Pablo Almeida Costa - 12421BCC050 <br>
-- Tiago Beijo Lemes Monteiro Junior - <br>
+- Tiago Beijo Lemes Monteiro Junior - 12421BCC095<br>
 - Pedro dos Santos Sales -
 </aside>
 
@@ -17,8 +17,10 @@ ALUNOS: <br>
 ## Estruturação
 
 ```python
-| lista.c
-| lista.h
+| consulta.h
+| consulta.c
+| medicamento.h
+| medicamento.c
 | main.c
 | README.md
 ```
