@@ -25,4 +25,5 @@ struct noMedicamento { //noMedicamento
 
 void criarListaMedicamento(ListaMedicamento *lista_medicamento);
 NoMedicamento* criarCelulaMedicamento(const char* nome_medicamento, uint quantidade_medicamento_receitado);
+void LiberarListaMedicamento(ListaMedicamento *lista_medicamento);
 #endif

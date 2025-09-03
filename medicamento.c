@@ -23,3 +23,16 @@ NoMedicamento* criarCelulaMedicamento(const char* nome_medicamento, uint quantid
     medicamento_criado->ant = medicamento_criado->prox = NULL;
     return medicamento_criado;
 }
+
+void LiberarListaMedicamento(ListaMedicamento *lista_medicamento) {
+    NoMedicamento *temp;
+
+    while(lista_medicamento->cabeca != NULL) {
+        temp = lista_medicamento->cabeca;
+        lista_medicamento->cabeca = temp->prox;
+        free(temp);
+    }
+
+    lista_medicamento->cauda = NULL;
+    lista_medicamento->tamanho = 0;
+}
