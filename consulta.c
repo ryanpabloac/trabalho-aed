@@ -1,7 +1,7 @@
+#include "consulta.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "consulta.h"
 
 void criarListaConsulta(ListaConsulta *lista_consulta) {
     lista_consulta->cabeca = NULL;
@@ -129,4 +129,47 @@ void removerPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_pac
     }
 
     printf("Paciente nao encontrado.\n");
+}
+
+void LiberarListaConsulta(ListaConsulta *lista_consulta) {
+    if (!lista_consulta) return;
+
+    NoConsulta *temp = lista_consulta->cabeca;
+    while (temp != NULL) {
+        NoConsulta *prox = temp->prox;
+        LiberarListaMedicamento(&temp->dados); // libera medicamentos do paciente
+        free(temp);
+        temp = prox;
+    }
+    lista_consulta->cabeca = lista_consulta->cauda = NULL;
+    lista_consulta->tamanho = 0;
+}
+
+void adicionarMedicamentoPaciente(NoConsulta *paciente, const char* nome, uint quantidade) {
+    if (!paciente || !nome || quantidade == 0) {
+        printf("Dados invalidos para adicionar medicamento.\n");
+        return;
+    }
+    NoMedicamento *novo = criarCelulaMedicamento(nome, quantidade);
+    if (!novo) return;
+
+    insereCelulaMedicamento(&paciente->dados, novo);
+    printf("Medicamento %s adicionado para o paciente %s.\n", nome, paciente->paciente_consultado);
+}
+
+void removerMedicamentoPaciente(NoConsulta *paciente, const char* nome) {
+    if (!paciente || !nome) {
+        printf("Dados invalidos para remover medicamento.\n");
+        return;
+    }
+    LiberarNoMedicamento(&paciente->dados, (char*)nome);
+}
+
+void imprimirMedicamentosPaciente(NoConsulta *paciente) {
+    if (!paciente) {
+        printf("Paciente invalido.\n");
+        return;
+    }
+    printf("=== MEDICAMENTOS DE %s ===\n", paciente->paciente_consultado);
+    imprimirListaMedicamento(&paciente->dados);
 }

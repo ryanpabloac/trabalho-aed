@@ -1,4 +1,7 @@
 #include "medicamento.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 void criarListaMedicamento(ListaMedicamento *lista_medicamento) {
     lista_medicamento->cabeca = NULL;
@@ -65,11 +68,38 @@ void LiberarNoMedicamento(ListaMedicamento *lista_medicamento, char medicamento[
             lista_medicamento->tamanho--;
             return;
         }
-        
+ 
         ant = iterador;
         iterador = prox;
     }
 
     printf("Medicamento %s não encontrado!", medicamento);
     return;
+}
+
+void insereCelulaMedicamento(ListaMedicamento *lista, NoMedicamento* novo) {
+    if (!lista || !novo) return;
+
+    if (lista->cabeca == NULL) {
+        lista->cabeca = lista->cauda = novo;
+    } else {
+        novo->prox = lista->cabeca;
+        lista->cabeca->ant = novo;
+        lista->cabeca = novo;
+    }
+    lista->tamanho++;
+}
+
+void imprimirListaMedicamento(ListaMedicamento *lista) {
+    if (!lista || lista->cabeca == NULL) {
+        printf("Nenhum medicamento cadastrado.\n");
+        return;
+    }
+    NoMedicamento *temp = lista->cabeca;
+    while (temp != NULL) {
+        printf("Medicamento: %s | Quantidade: %u\n",
+               temp->nome_medicamento,
+               temp->quantidade_medicamento_receitado);
+        temp = temp->prox;
+    }
 }

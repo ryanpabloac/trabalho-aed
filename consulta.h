@@ -26,5 +26,9 @@ void imprimirListaConsulta(ListaConsulta *lista_consulta);
 void insereCelulaConsulta(ListaConsulta *lista_consulta, NoConsulta* dados);
 void buscarPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_paciente);
 void removerPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_paciente);
+void LiberarListaConsulta(ListaConsulta *lista_consulta);
+void adicionarMedicamentoPaciente(NoConsulta *paciente, const char* nome, uint quantidade);
+void removerMedicamentoPaciente(NoConsulta *paciente, const char* nome);
+void imprimirMedicamentosPaciente(NoConsulta *paciente);
 
 #endif

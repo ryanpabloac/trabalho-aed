@@ -27,4 +27,7 @@ void criarListaMedicamento(ListaMedicamento *lista_medicamento);
 NoMedicamento* criarCelulaMedicamento(const char* nome_medicamento, uint quantidade_medicamento_receitado);
 void LiberarListaMedicamento(ListaMedicamento *lista_medicamento);
 void LiberarNoMedicamento(ListaMedicamento *lista_medicamento, char medicamento[50]);
+void insereCelulaMedicamento(ListaMedicamento *lista, NoMedicamento* novo);
+void imprimirListaMedicamento(ListaMedicamento *lista);
+
 #endif
