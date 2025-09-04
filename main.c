@@ -1,8 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "consulta.h"
 #include "medicamento.h"
+#include "arquivo.h"
 
 void menu() {
     printf("\n=== MENU CONSULTORIO ===\n");
@@ -13,6 +11,7 @@ void menu() {
     printf("5 - Adicionar medicamento a paciente\n");
     printf("6 - Remover medicamento de paciente\n");
     printf("7 - Imprimir medicamentos de paciente\n");
+    printf("8 - Importar arquivo consultas\n");
     printf("0 - Sair\n");
     printf("Escolha: ");
 }
@@ -131,7 +130,23 @@ int main() {
                 }
                 break;
             }
+            case 8: {
+                system("cls");
+                printf("Importando arquivo ...\n");
 
+                FILE *fp = fopen("consultas.txt", "r");
+                if(fp == NULL) {
+                    printf("Arquivo não pode ser aberto!\n");
+                    break;
+                }
+
+                LiberarListaConsulta(&lista);
+                arquivoToLista(fp, &lista);
+                printf("Arquivo importado com sucesso!\n");
+
+                fclose(fp);
+                break;
+            }
             case 0:
                 LiberarListaConsulta(&lista);
                 printf("Encerrando programa...\n");

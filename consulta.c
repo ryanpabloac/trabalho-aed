@@ -10,7 +10,7 @@ void criarListaConsulta(ListaConsulta *lista_consulta) {
 }
 
 NoConsulta* criarCelulaConsulta(const char* nome_paciente, uint idade_paciente){
-    if (nome_paciente == NULL || idade_paciente == 0) {
+    if (nome_paciente == NULL || idade_paciente <= 0) {
         printf("ERRO: informacoes invalidas.\n");
         return NULL;
     }

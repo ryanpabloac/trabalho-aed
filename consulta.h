@@ -3,6 +3,7 @@
 
 #include "medicamento.h"
 
+typedef  unsigned int uint;
 typedef struct descritorConsulta ListaConsulta;
 typedef struct noConsulta NoConsulta;
 

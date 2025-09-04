@@ -1,0 +1,71 @@
+Joao Silva
+25 2
+Dipirona 10
+Amoxicilina 5
+
+Maria Oliveira
+40 1
+Ibuprofeno 20
+
+Carlos Pereira
+33 3
+Paracetamol 12
+Omeprazol 8
+Losartana 15
+
+Ana Souza
+19 2
+Lorazepam 6
+Buscopan 4
+
+Ricardo Gomes
+55 1
+Metformina 30
+
+Fernanda Lima
+28 2
+Prednisona 10
+Captopril 7
+
+Gabriel Rocha
+47 3
+Aspirina 25
+Clonazepam 12
+Atorvastatina 18
+
+Beatriz Martins
+62 1
+Furosemida 15
+
+Paulo Henrique
+36 2
+Paracetamol 8
+Dipirona 12
+
+Juliana Castro
+22 1
+Amoxicilina 14
+
+Marcos Dias
+70 3
+Losartana 20
+Hidroclorotiazida 10
+Simvastatina 15
+
+Camila Fernandes
+31 2
+Omeprazol 6
+Ibuprofeno 9
+
+Rafael Almeida
+45 1
+Enalapril 25
+
+Patricia Costa
+53 2
+Levotiroxina 12
+Metformina 18
+
+Eduardo Nascimento
+27 1
+Paracetamol 10
