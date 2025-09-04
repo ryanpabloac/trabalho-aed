@@ -25,7 +25,10 @@ ALUNOS: <br>
 | README.md
 ```
 
----
+## Compilando o projeto
+```terminal
+gcc main.c medicamento.c consulta.c -o programa
+```
 
 ## Lista.h
 

@@ -140,7 +140,6 @@ int main() {
                     break;
                 }
 
-                LiberarListaConsulta(&lista);
                 arquivoToLista(fp, &lista);
                 printf("Arquivo importado com sucesso!\n");
 
