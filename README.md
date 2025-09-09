@@ -4,7 +4,7 @@
 ALUNOS: <br>
 - Ryan Pablo Almeida Costa - 12421BCC050 <br>
 - Tiago Beijo Lemes Monteiro Junior - 12421BCC095<br>
-- Pedro dos Santos Sales -
+- Pedro dos Santos Sales - 12421BCC070
 </aside>
 
 ## Estruturas Utilizadas
