@@ -120,7 +120,7 @@ void removerPacienteConsulta(ListaConsulta *lista_consulta, const char* nome_pac
             else
                 lista_consulta->cauda = temporario->ant; // removendo o último
             
-            LiberarListaMedicamento(&temporario->dados)
+            LiberarListaMedicamento(&temporario->dados);
             free(temporario);
             lista_consulta->tamanho--;
             printf("Paciente removido com sucesso.\n");
