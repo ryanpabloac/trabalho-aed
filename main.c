@@ -12,6 +12,8 @@ void menu() {
     printf("6 - Remover medicamento de paciente\n");
     printf("7 - Imprimir medicamentos de paciente\n");
     printf("8 - Importar arquivo consultas\n");
+    printf("9 - Gerar relatorio da clinica.\n");
+    printf("10 - Percorrer pacientes.\n");
     printf("0 - Sair\n");
     printf("Escolha: ");
 }
@@ -29,6 +31,7 @@ int main() {
         menu();
         scanf("%d", &opcao);
         getchar(); // limpar buffer
+        system("cls");
 
         switch (opcao) {
             case 1:
@@ -131,7 +134,6 @@ int main() {
                 break;
             }
             case 8: {
-                system("cls");
                 printf("Importando arquivo ...\n");
 
                 FILE *fp = fopen("consultas.txt", "r");
@@ -144,6 +146,14 @@ int main() {
                 printf("Arquivo importado com sucesso!\n");
 
                 fclose(fp);
+                break;
+            }
+            case 9:{
+                gerarRelatorio(&lista);
+                break;
+            }
+            case 10:{
+                percorrePacientes(&lista);
                 break;
             }
             case 0:

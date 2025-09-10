@@ -173,3 +173,78 @@ void imprimirMedicamentosPaciente(NoConsulta *paciente) {
     printf("=== MEDICAMENTOS DE %s ===\n", paciente->paciente_consultado);
     imprimirListaMedicamento(&paciente->dados);
 }
+
+void gerarRelatorio(ListaConsulta *lista) {
+    if (lista == NULL) {
+        printf("Lista invalida.\n");
+        return;
+    }
+    if (lista->cabeca == NULL) {
+        printf("Lista vazia.\n");
+        return;
+    }
+
+    NoConsulta* temporario = lista->cabeca;
+    while (temporario != NULL) {
+        printf("=== CONSULTA ===\n");
+        printf("NOME PACIENTE: %s\n", temporario->paciente_consultado);
+        printf("IDADE PACIENTE: %u\n", temporario->paciente_idade);
+
+        if (temporario->dados.cabeca == NULL) {
+            printf("Nenhum medicamento cadastrado.\n");
+        } else {
+            NoMedicamento *temp = temporario->dados.cabeca;
+            while (temp != NULL) {
+                printf("Medicamento: %s | Quantidade: %u\n",
+                       temp->nome_medicamento,
+                       temp->quantidade_medicamento_receitado);
+                temp = temp->prox;
+            }
+        }
+
+        printf("\n");
+        temporario = temporario->prox; // avança para o próximo paciente
+    }
+}
+void percorrePacientes(ListaConsulta *lista){
+    if (lista == NULL) {
+        printf("Lista invalida.\n");
+        return;
+    }
+    if (lista->cabeca == NULL) {
+        printf("Lista vazia.\n");
+        return;
+    }
+    printf("=== PERCORRENDO PACIENTES ===\n");
+    NoConsulta* temp = lista->cabeca;
+    int opcao;
+    do{
+        printf("PACIENTE ATUAL: %s\n", temp->paciente_consultado);
+        printf("Digite a opcao desejada:\n");
+        printf("1 - AVANCAR PACIENTE.\n");
+        printf("2 - VOLTAR PACIENTE.\n");
+        printf("0 - SAIR\n");
+        scanf("%d", &opcao);
+        switch(opcao){
+            case 1:{
+                if(temp->prox == NULL){
+                    printf("Impossivel avancar, ultimo elemento.\n"); 
+                    return;
+                } 
+                printf("PROXIMO PACIENTE: %s\n", temp->prox->paciente_consultado);
+                printf("avançando...\n");
+                temp = temp->prox;
+                break;
+            }
+            case 2:{
+                if(temp->ant == NULL){
+                    printf("Impossivel retornar, primeiro elemento.\n"); 
+                    return;
+                } 
+                printf("PACIENTE ANTERIOR: %s\n", temp->ant->paciente_consultado);
+                temp = temp->ant;
+                break;
+            }
+        }
+    } while(opcao != 0);
+}

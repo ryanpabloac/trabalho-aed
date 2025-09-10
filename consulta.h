@@ -31,5 +31,7 @@ void LiberarListaConsulta(ListaConsulta *lista_consulta);
 void adicionarMedicamentoPaciente(NoConsulta *paciente, const char* nome, uint quantidade);
 void removerMedicamentoPaciente(NoConsulta *paciente, const char* nome);
 void imprimirMedicamentosPaciente(NoConsulta *paciente);
+void gerarRelatorio(ListaConsulta *lista);
+void percorrePacientes(ListaConsulta *lista);
 
 #endif
